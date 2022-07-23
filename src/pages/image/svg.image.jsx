@@ -2,23 +2,25 @@ import * as React from 'react';
 import styled from '@mui/material/styles/styled';
 import PropTypes from 'prop-types';
 
-function colorType (color) {
+function colorType (color, theme) {
   switch (color) {
     case 'primary':
-      return { fill: '#06c755' };
+      return { fill: theme.palette.primary.main };
     case 'secondary':
-      return { fill: '#E48FA5' };
+      return { fill: theme.palette.secondary.dark };
+    case 'success':
+      return { fill: theme.palette.success.light };
+    case 'warning':
+      return { fill: theme.palette.warning.dark };
     case 'error':
-      return { fill: 'red' };
-    case 'dark':
-      return { fill: 'black' };
+      return { fill: theme.palette.error.main };
     default:
-      return { fill: '#06c755' };
+      return { fill: theme.palette.primary.main };
   }
 }
 const StyledDiv = styled('div')(({ theme, color }) => ({
   '& .cls-1': {
-    ...(colorType(color)),
+    ...(colorType(color, theme)),
   },
 
   '& .cls-2': {
@@ -73,13 +75,14 @@ SvgImage.propTypes = {
   color: PropTypes.oneOf(['primary', 'secondary', 'error', 'dark'])
 }
 
-function SvgImages({ height, width }) {
+function SvgImages() {
   return (
     <div style={{ display: 'flex', gap: 10 }}>
       <SvgImage width={320} height={320} color={'primary'} />
       <SvgImage width={240} height={240} color={'secondary'} />
-      <SvgImage width={160} height={160} color={'error'} />
-      <SvgImage width={80} height={80} color='dark' />
+      <SvgImage width={180} height={180} color={'success'} />
+      <SvgImage width={140} height={140} color={'error'} />
+      <SvgImage width={100} height={100} color='dark' />
     </div>
   );
 }
