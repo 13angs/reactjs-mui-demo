@@ -1,5 +1,9 @@
 const routes = {
-    product: '/products'
-}
+  product: '/products',
+  image: {
+    main: 'images',
+    svg: '/images/svg',
+  },
+};
 
 export default routes;
