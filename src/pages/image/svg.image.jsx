@@ -1,9 +1,11 @@
 import * as React from 'react';
 import styled from '@mui/material/styles/styled';
 
-const StyledDiv = styled('div')(({ theme }) => ({
+const StyledDiv = styled('div')(({ theme, color }) => ({
   '& .cls-1': {
-    fill: '#06c755',
+    ...(color === 'primary' && { fill: '#06c755' }),
+    ...(color === 'secondary' && { fill: '#E48FA5' }),
+    ...(color === 'dark' && { fill: 'black' }),
   },
 
   '& .cls-2': {
@@ -11,9 +13,9 @@ const StyledDiv = styled('div')(({ theme }) => ({
   },
 }));
 
-function SvgImage({ height, width }) {
+function SvgImage({ height, width, color }) {
   return (
-    <StyledDiv>
+    <StyledDiv color={color}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width={width}
@@ -57,9 +59,9 @@ function SvgImage({ height, width }) {
 function SvgImages({ height, width }) {
   return (
     <div style={{ display: 'flex', gap: 10 }}>
-      <SvgImage width={320} height={320} />
-      <SvgImage width={240} height={240} />
-      <SvgImage width={160} height={160} />
+      <SvgImage width={320} height={320} color={'primary'} />
+      <SvgImage width={240} height={240} color={'secondary'} />
+      <SvgImage width={160} height={160} color={'dark'} />
       <SvgImage width={80} height={80} />
     </div>
   );
