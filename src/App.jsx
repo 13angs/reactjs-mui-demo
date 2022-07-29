@@ -11,9 +11,9 @@ export default function App() {
     <div>
         <BrowserRouter>
           <Switch>
+            <Route exact path={routes.setting.main} component={ListSetting} />
             <Route exact path={routes.image.svg} component={SvgImages} />
             <Route path={routes.product} component={ProductList} />
-            <Route path={routes.setting.main} component={ListSetting} />
             {/* <Route path={routes.pdf} component={ExportToPDF} /> */}
           </Switch>
         </BrowserRouter>

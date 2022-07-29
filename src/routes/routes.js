@@ -7,7 +7,7 @@ const routes = {
     svg: '/images/svg',
   },
   setting: {
-    main: 'settings'
+    main: '/settings'
   }
 };
 
