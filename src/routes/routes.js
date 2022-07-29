@@ -6,6 +6,9 @@ const routes = {
     main: 'images',
     svg: '/images/svg',
   },
+  setting: {
+    main: 'settings'
+  }
 };
 
 export default routes;
